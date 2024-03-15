@@ -11,7 +11,7 @@ import java.util.List;
 public class TodoListServiceImpl implements TodoListService {
     LocalDateTime now = LocalDateTime.now();
     List<Todo> todoList = new ArrayList<>() {{
-        add(new Todo(1, "Create Spring Boot Application", "Create Spring Boot Application with unit testing", false, now));
+        add(new Todo(1, "Create Spring Boot Application", "Create Spring Boot Application with unit testing", true, now));
         add(new Todo(2, "Create Spring Project Packages", "Create packages for controllers, services, models, and repositories", false, now));
         add(new Todo(3, "Create Todo Model", "Create a Todo model with fields: id, task, description, done, createdAt", false, now));
     }};
@@ -27,8 +27,16 @@ public class TodoListServiceImpl implements TodoListService {
     }
 
     @Override
+    public List<Todo> searchTodoByTaskAndIsDone(String task, boolean isDone) {
+        return getAllTodos().stream()
+                .filter(todo -> todo.getTask().contains(task) && todo.isDone() == isDone)
+                .toList();
+    }
+
+
+    @Override
     public List<Todo> searchTodoByIsDone(boolean isDone) {
-       return  getAllTodos().stream().filter(todo -> todo.isDone() == isDone).toList();
+        return getAllTodos().stream().filter(todo -> todo.isDone() == isDone).toList();
     }
 
     @Override
