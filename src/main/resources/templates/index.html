@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello</title>
+</head>
+<body>
+<table>
+    <tr>
+        <td>id</td>
+        <td>task</td>
+        <td>description</td>
+        <td>isDone</td>
+        <td>createdAt</td>
+    </tr>
+    <tr th:each="todo : ${todoList}">
+        <td th:text="${todo.id}">1</td>
+        <td th:text="${todo.task}">John</td>
+        <td th:text="${todo.description}">John</td>
+        <td th:text="${todo.isDone}">John</td>
+        <td th:text="${todo.createdAt}">30</td>
+    </tr>
+</table>
+</body>
+</html>
