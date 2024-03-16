@@ -10,9 +10,9 @@ public interface TodoListService {
 
     List<Todo> searchTodoByTask(String task);
 
-    List<Todo> searchTodoByTaskAndIsDone(String task, boolean isDone);
+    List<Todo> searchTodoByTaskAndIsDone(String task, String  isDone);
 
-    List<Todo> searchTodoByIsDone(boolean isDone);
+    List<Todo> searchTodoByIsDone(String isDone);
 
     Todo getTodoById(int id);
 

@@ -7,14 +7,16 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
 
 @AllArgsConstructor
-@NoArgsConstructor
 @Data
 public class Todo {
-    private int id; // Consider using a Long for larger lists
+    public static int nextId = 0;
+    private int id;
     private String task;
     private String description;
-    private boolean isDone;
+    private String  isDone;
     private LocalDateTime createdAt;
-
+    public Todo() {
+        this.id = ++nextId;
+    }
 
 }
